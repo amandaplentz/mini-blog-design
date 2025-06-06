@@ -1,132 +1,181 @@
-const postsData = [
+// Dados da API com imagens relacionadas aos assuntos
+const apiData = [
   {
-    id: 1,
-    title: "Dicas de Moda para Arrasar no Verão",
-    excerpt: "Quer se sentir linda e confortável no calor? Confira as melhores tendências para a estação mais quente do ano!",
-    body: "O verão pede roupas leves, cores vibrantes e tecidos fresquinhos como linho e algodão. Invista em vestidos fluidos, shorts jeans e blusinhas cropped. As estampas tropicais e as cores alegres como amarelo, coral e verde água estão em alta. Não esqueça dos acessórios: óculos de sol grandes e sandálias rasteiras completam o look perfeito para o verão!",
-    image: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=800&q=80"
+    "thumbImage": "https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=format&fit=crop&w=800&q=80",
+    "thumbImageAltText": "Google Notícias",
+    "title": "Google Notícias completa 20 anos com redesign e fundo de apoio ao jornalismo independente",
+    "description": "Na última semana, o Google apresentou uma nova versão para desktop do seu serviço de notícias. Após um redesign profundo, o Google Notícias promete informar mais sobre os temas que os usuários acompanham, com mais profundidade e facilidade de acesso – seja lendo no smartphone ou, agora, no computador.",
+    "profileThumbImage": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80",
+    "profileName": "Fernando Silva",
+    "postDate": "1/03/2022"
   },
   {
-    id: 2,
-    title: "Cuidados com a Pele: Rotina Diária",
-    excerpt: "Aprenda a montar uma rotina de cuidados simples...",
-    body: "Limpeza, hidratação e proteção solar são os passos básicos para uma pele saudável. Pela manhã: lave o rosto com um gel de limpeza suave, aplique um hidratante facial e finalize com protetor solar FPS 30 ou superior. À noite: remova toda a maquiagem, lave o rosto novamente e aplique um sérum com vitamina C ou retinol para renovação celular. Duas vezes por semana, faça uma esfoliação suave para remover as células mortas.",
-    image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80"
+    "thumbImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=800&q=80",
+    "thumbImageAltText": "MacBook Pro",
+    "title": "Vendas do Macbook Pro com chip M2 começam nesta sexta-feira (24)",
+    "description": "Durante a WWDC deste ano, a Apple anunciou diversas novidades em seus sistemas e produtos, incluindo um Macbook Air redesenhado e com a segunda geração de chips da empresa, o M2.",
+    "profileThumbImage": "https://images.unsplash.com/photo-1494790108755-2616b612b786?auto=format&fit=crop&w=100&q=80",
+    "profileName": "Paula Ramos",
+    "postDate": "1/03/2022"
   },
   {
-    id: 3,
-    title: "Makeup Natural para o Dia a Dia",
-    excerpt: "Quer uma maquiagem rápida e leve para o cotidiano?",
-    body: "Comece com um primer, aplique uma base leve ou BB cream para uniformizar o tom da pele. Use um corretivo apenas onde necessário. Para os olhos, um lápis marrom aplicado de forma suave e um rímel marrom dão um efeito natural. Finalize com um blush em tom rosado e um batom nude ou gloss. Essa maquiagem leva menos de 10 minutos e deixa você pronta para o dia!",
-    image: "https://images.unsplash.com/photo-1526045612212-70caf35c14df?auto=format&fit=crop&w=800&q=80"
+    "thumbImage": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80",
+    "thumbImageAltText": "Carro elétrico",
+    "title": "Citroen Ami Buggy: O carro mais simpático que você já viu até hoje",
+    "description": "17 minutos para esgotar e apenas 2 minutos e 53 segundos para vender a primeira unidade. Estes são os números (incríveis) das vendas das 50 unidades especiais e ultra limitadas do My Ami Buggy, da Citroen.",
+    "profileThumbImage": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=80",
+    "profileName": "Rodrigo Silveira",
+    "postDate": "1/03/2022"
   },
   {
-    id: 4,
-    title: "Tendências de Acessórios para 2025",
-    excerpt: "Conheça os acessórios que vão bombar no próximo ano.",
-    body: "Brincos grandes, correntes douradas e tiaras estilosas serão os destaques. As pérolas continuam em alta, mas agora em designs mais modernos e descontraídos. As bolsas mini ainda são tendência, mas as médias (tamanho médio) estão voltando com tudo. Para os pés, sandálias de tiras finas e sapatilhas confortáveis com detalhes metálicos. Não esqueça dos óculos de sol com armações oversize!",
-    image: "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=800&q=80"
+    "thumbImage": "https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?auto=format&fit=crop&w=800&q=80",
+    "thumbImageAltText": "Gaming",
+    "title": "SEGA anuncia Hyenas, novo FPS no espaço pós-apocalíptico",
+    "description": "O mundo dos jogos competitivos nunca foi tão diverso, e o anúncio feito pela SEGA nesta quarta-feira (22) promete contribuir com outro título promissor.",
+    "profileThumbImage": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80",
+    "profileName": "Lucas Oliveira",
+    "postDate": "10/06/2022"
   },
   {
-    id: 5,
-    title: "Dicas para Cabelos Saudáveis",
-    excerpt: "Aprenda os cuidados essenciais para manter seus cabelos brilhantes...",
-    body: "Use shampoos adequados, hidrate regularmente e evite o excesso de calor. Lave os cabelos com água morna ou fria, nunca muito quente. Aplique máscaras de hidratação 1-2 vezes por semana. Corte as pontas a cada 3 meses para evitar o aparecimento de pontas duplas. Proteja os cabelos do sol e do cloro da piscina. Uma alimentação rica em proteínas e vitaminas também reflete na saúde dos fios!",
-    image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80"
+    "thumbImage": "https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=800&q=80",
+    "thumbImageAltText": "Metaverso VR",
+    "title": "Metaverso explode em discussões na internet, mas público ainda tem receios",
+    "description": "De acordo com números consolidados pela Comscore, apenas 24% dos comentários da internet sobre o metaverso são positivos. O motivo, por sua vez, seria o desconhecimento do público acerca do assunto, que ainda desperta dúvidas e receios em muita gente.",
+    "profileThumbImage": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=100&q=80",
+    "profileName": "Maria Silva",
+    "postDate": "10/06/2022"
   },
   {
-    id: 6,
-    title: "Inspirações de Looks para Festas",
-    excerpt: "Veja ideias de looks estilosos e elegantes...",
-    body: "Vestidos com brilho, saltos poderosos e acessórios marcantes são perfeitos para festas. Para eventos noturnos, aposte em cores escuras como preto, vinho ou azul marinho combinadas com detalhes metálicos. Para festas diurnas, vestidos florais ou em cores pastel ficam lindos. Não tenha medo de ousar nos acessórios - uma bolsa brilhante ou brincos grandes podem transformar um look simples em algo especial!",
-    image: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    id: 7,
-    title: "Alimentação Saudável para a Beleza",
-    excerpt: "Descubra como uma alimentação balanceada pode refletir...",
-    body: "Inclua frutas, verduras, proteínas magras e gorduras boas na sua dieta. Alimentos ricos em vitamina C (como laranja e acerola) ajudam na produção de colágeno. Castanhas e sementes fornecem vitamina E, que protege a pele. Peixes como salmão são ricos em ômega-3, que ajuda a manter a pele hidratada. Não se esqueça de beber pelo menos 2 litros de água por dia para manter a pele e cabelos hidratados!",
-    image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    id: 8,
-    title: "Exercícios para Melhorar a Postura",
-    excerpt: "Postura correta faz toda diferença!",
-    body: "Alongamentos diários, fortalecimento do core e exercícios de conscientização corporal podem melhorar muito sua postura. Pratique yoga ou pilates para aumentar a consciência postural. Exercícios como prancha, ponte e alongamento de peitoral são ótimos para corrigir ombros curvados. Lembre-se de ajustar sua estação de trabalho - monitor na altura dos olhos, pés apoiados no chão e coluna reta contra o encosto da cadeira.",
-    image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    id: 9,
-    title: "Como Organizar seu Espaço de Trabalho",
-    excerpt: "Um espaço organizado aumenta a produtividade...",
-    body: "Use organizadores, mantenha apenas o essencial na mesa e crie um sistema de arquivamento. Comece eliminando tudo que não usa - guarde apenas o necessário. Use porta-trecos, pastas e gavetas organizadoras. Mantenha cabos arrumados com abraçadeiras. Escolha uma decoração minimalista que inspire calma e concentração. Uma planta no ambiente traz vida e melhora a qualidade do ar. Reserve 10 minutos no final do dia para reorganizar tudo!",
-    image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    id: 10,
-    title: "Técnicas de Meditação para Iniciantes",
-    excerpt: "Aprenda técnicas simples de meditação para reduzir o estresse.",
-    body: "Reserve alguns minutos por dia para meditar. Comece com 5 minutos e aumente gradualmente. Sente-se confortavelmente com a coluna ereta. Feche os olhos e concentre-se na respiração. Quando a mente divagar, gentilmente traga o foco de volta à respiração. Você pode usar apps guiados no início. Meditar regularmente reduz o estresse, melhora a concentração e promove bem-estar geral. Experimente fazer pela manhã para começar o dia com mais clareza!",
-    image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=800&q=80"
-  },
+    "thumbImage": "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=800&q=80",
+    "thumbImageAltText": "Web3 e Blockchain",
+    "title": "Como o metaverso e a web3 revolucionarão a vida e os negócios?",
+    "description": "A ideia de criar mundos inteiramente fictícios e com possibilidades infinitas sempre encantou o ser humano. Seja nas antigas tradições orais, na literatura, nas telas do cinema ou nos jogos, mais recentemente, o desejo pela materialização daquilo que somente a criatividade e a mente podem elaborar move montanhas, além de muito dinheiro.",
+    "profileThumbImage": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80",
+    "profileName": "Debora Pacheco",
+    "postDate": "10/06/2022"
+  }
 ];
 
-// Cria o card de postagem na index.html
-function createPostCard(post) {
+// Função para criar um card de post
+function createPostCard(post, index) {
   const card = document.createElement('article');
   card.classList.add('post-card');
+  
   card.innerHTML = `
-    <img src="${post.image}" alt="${post.title}">
+    <img src="${post.thumbImage}" alt="${post.thumbImageAltText}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=80'">
     <div class="post-content">
+      <div class="post-meta">
+        <img src="${post.profileThumbImage}" alt="${post.profileName}" onerror="this.src='https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=100&q=80'">
+        <span>${post.profileName} • ${post.postDate}</span>
+      </div>
       <h3 class="post-title">${post.title}</h3>
-      <p class="post-excerpt">${post.excerpt}</p>
-      <button class="btn-read-more" data-id="${post.id}">Leia mais</button>
+      <p class="post-excerpt">${post.description}</p>
+      <button class="btn-read-more" data-index="${index}">Leia mais</button>
     </div>
   `;
+  
   return card;
 }
 
-// Renderiza todos os cards
+// Função para renderizar todos os posts
 function renderPosts() {
   const postsContainer = document.getElementById('posts');
   if (!postsContainer) return;
-  postsData.forEach(post => {
-    const card = createPostCard(post);
+  
+  // Limpar container (remover loading)
+  postsContainer.innerHTML = '';
+  
+  // Criar e adicionar cada post
+  apiData.forEach((post, index) => {
+    const card = createPostCard(post, index);
     postsContainer.appendChild(card);
   });
 }
 
-// Navega para a página do post individual
-document.addEventListener('click', (e) => {
-  if (e.target.classList.contains('btn-read-more')) {
-    const postId = e.target.dataset.id;
-    window.location.href = `post.html?id=${postId}`;
-  }
-});
-
-// Renderiza o conteúdo do post individual
-function renderSinglePost() {
-  const container = document.getElementById('single-post');
-  if (!container) return;
-  const params = new URLSearchParams(window.location.search);
-  const id = params.get('id');
-  const post = postsData.find(p => p.id == id);
-  if (!post) {
-    container.innerHTML = "<p>Post não encontrado.</p>";
-    return;
-  }
-  container.innerHTML = `
-    <img src="${post.image}" alt="${post.title}">
-    <h2>${post.title}</h2>
-    <p>${post.body}</p>
+// Função para abrir modal com detalhes do post
+function openModal(postIndex) {
+  const post = apiData[postIndex];
+  const modal = document.getElementById('modal');
+  const modalImage = document.getElementById('modalImage');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalBody = document.getElementById('modalBody');
+  
+  modalImage.src = post.thumbImage;
+  modalImage.alt = post.thumbImageAltText;
+  modalTitle.textContent = post.title;
+  modalBody.innerHTML = `
+    <div style="margin-bottom: 15px; font-size: 0.9rem; color: #777;">
+      Por <strong>${post.profileName}</strong> • ${post.postDate}
+    </div>
+    ${post.description}
   `;
+  
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden'; // Previne scroll da página
 }
 
-// Executa só a função certa na página certa
-document.addEventListener('DOMContentLoaded', () => {
-  if (document.getElementById('posts')) {
-    renderPosts();
-  } else if (document.getElementById('single-post')) {
-    renderSinglePost();
+// Função para fechar modal
+function closeModal() {
+  const modal = document.getElementById('modal');
+  modal.classList.remove('active');
+  document.body.style.overflow = 'auto'; // Restaura scroll da página
+}
+
+// Event listeners
+document.addEventListener('click', (e) => {
+  // Abrir modal ao clicar em "Leia mais"
+  if (e.target.classList.contains('btn-read-more')) {
+    e.preventDefault();
+    const postIndex = parseInt(e.target.dataset.index);
+    openModal(postIndex);
+  }
+  
+  // Fechar modal ao clicar no X ou fora do conteúdo
+  if (e.target.id === 'closeModal' || e.target.id === 'modal') {
+    closeModal();
   }
 });
+
+// Fechar modal com ESC
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    closeModal();
+  }
+});
+
+// Inicializar quando a página carregar
+document.addEventListener('DOMContentLoaded', () => {
+  // Simular carregamento da API
+  setTimeout(() => {
+    renderPosts();
+  }, 1200);
+});
+
+// Função para tratamento de erro de imagens
+function handleImageError(img, fallbackUrl) {
+  img.onerror = null; // Previne loop infinito
+  img.src = fallbackUrl;
+}
+
+// Adicionar efeito de loading suave nos cards
+function addCardAnimations() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  });
+
+  // Observar todos os cards após serem criados
+  setTimeout(() => {
+    const cards = document.querySelectorAll('.post-card');
+    cards.forEach((card, index) => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+      observer.observe(card);
+    });
+  }, 1300);
+}
